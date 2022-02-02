@@ -36,5 +36,5 @@ deleteButton.addEventListener('click', _ => {
                 window.location.reload(true)
             }
         })
-        .catch(console.error)
+        .catch(console.error);
 })
