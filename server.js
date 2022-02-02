@@ -1,10 +1,11 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const MongoClient = require('mongodb').MongoClient
-const app = express()
-app.listen(3000, function () {
-    console.log('listening on 3000')
-})
+const app = express();
+var PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+    console.log(`Server Started`)
+});
 
 
 
