@@ -5,53 +5,117 @@
 <head>
     <meta charset="UTF-8" />
     <title>Star Wars Quote App</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <style>
+        .width {
+            width: 45%;
+        }
+
+        .margin {
+            margin-left: 27%
+        }
+    </style>
 </head>
 
 <body>
-    <h1>May Node and Express be with you.</h1>
 
-    <form action="/quotes" method="POST">
-        <input type="text" placeholder="name" name="name" />
-        <input type="text" placeholder="quote" name="quote" />
-        <button type="submit">Submit</button>
-    </form>
-    <%= quotes %>
-
-        <h2> Quotes </h2>
-
-        <ul class="quotes">
-            <!-- Loop through quotes -->
-            <% for(var i=0; i < quotes.length; i++) {%>
-                <li class="quote">
-                    <!-- Output name from the iterated quote object -->
-                    <span>
-                        <%= quotes[i].name %>
-                    </span>:
-                    <!-- Output quote from the iterated quote object -->
-                    <span>
-                        <%= quotes[i].quote %>
-                    </span>
-                </li>
-                <% } %>
-        </ul>
-
-        <div>
-            <h2>Darth Vadar invades!</h2>
-            <p>
-                Replace first Yoda's quote with a quote written by Darth Vadar
-            </p>
-            <button id="update-button">Replace Yoda's quote</button>
+    <div class="container">
+        <div class="container text-center mt-5 mb-5">
+            <h1>Welcome to the CRUD App</h1>
         </div>
-        <div>
-            <h2>Remove Darth Vadar!</h2>
-            <p>
-                Delete one Darth Vadar's quote. Does nothing if there are no more Darth
-                Vadar's quote
-            </p>
-            <button id="delete-button">Delete Darth Vadar's quote</button>
-            <div id="message"></div>
+
+        <div class="container-fluid pl-5 pr-5">
+            <form action="/quotes" method="POST">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Name</label>
+                    <input type="text" class="form-control" placeholder="name" name="name" aria-describedby="emailHelp">
+
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Quotes</label>
+                    <input type="text" class="form-control" name="quote" placeholder="Quotes"
+                        aria-describedby="emailHelp">
+
+                </div>
+                <!-- <input type="text" placeholder="name" name="name" />
+            <input type="text" placeholder="quote" name="quote" /> -->
+                <div class="container-fluid ">
+                    <button type="submit" class="btn btn-success btn-lg btn-block width margin">Submit</button>
+                </div>
+            </form>
+
         </div>
-        <script src="/main.js"></script>
+        <!-- <%= quotes %> -->
+
+        <div class="jumbotron mt-5">
+            <div class="container">
+                <h2 class="text-center mb-4"> Your Quotes : </h2>
+                <div class="margin">
+
+                    <ul class="quotes">
+                        <!-- Loop through quotes -->
+                        <% for(var i=0; i < quotes.length; i++) {%>
+                            <li class="quote">
+                                <!-- Output name from the iterated quote object -->
+                                <span>
+                                    <%= quotes[i].name %>
+                                </span>:
+                                <!-- Output quote from the iterated quote object -->
+                                <span>
+                                    <%= quotes[i].quote %>
+                                </span>
+                            </li>
+                            <% } %>
+                    </ul>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="jumbotron ">
+            <div class="container">
+                <h2 class="text-center">Darth Vadar invades!</h2>
+                <p class="text-center mt-4">
+                    Replace first Yoda's quote with a quote written by Darth Vadar
+                </p>
+                <button type="button" class="btn btn-info width btn-lg margin mt-3" id="update-button">Replace Yoda's
+                    Quote</button>
+
+
+            </div>
+        </div>
+        <div class="jumbotron">
+            <div class="conatiner text-center">
+                <h2>Remove Darth Vadar!</h2>
+                <p>
+                    Delete one Darth Vadar's quote. Does nothing if there are no more Darth
+                    Vadar's quote
+                </p>
+                <button type="button" class="btn btn-info width btn-lg  mt-3" id="delete-button">Delete Darth
+                    Vadar's
+                    Quote</button>
+
+                <div id="message"></div>
+
+            </div>
+        </div>
+
+
+
+
+    </div>
+    <script src="/main.js"></script>
 </body>
 
 </html>
